@@ -1,0 +1,204 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- This URDF was automatically created by SolidWorks to URDF Exporter! Originally created by Stephen Brawner (brawner@gmail.com) 
+     Commit Version: 1.5.1-0-g916b5db  Build Version: 1.5.7152.31018
+     For more information, please see http://wiki.ros.org/sw_urdf_exporter -->
+<robot name="gripper" xmlns:xacro="http://www.ros.org/wiki/xacro">
+  <link name="gripper_body">
+    <inertial>
+      <origin xyz="0.030743 -0.052447 0.02264" rpy="0 0 0" />
+      <mass value="1.23381" />
+      <inertia
+        ixx="0.00020083"
+        ixy="3.1979E-11"
+        ixz="-1.5744E-22"
+        iyy="0.00022836"
+        iyz="-7.5039E-21"
+        izz="0.00011851" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://gripper_ur5/meshes/gripper_body.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.79216 0.81961 0.93333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://gripper_ur5/meshes/gripper_body.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <link
+    name="finger_link1">
+    <inertial>
+      <origin
+        xyz="-0.0055776 0.024687 9.7594E-11"
+        rpy="0 0 0" />
+      <mass
+        value="0.41464" />
+      <inertia
+        ixx="3.0086E-06"
+        ixy="6.4834E-09"
+        ixz="3.2794E-13"
+        iyy="6.6619E-07"
+        iyz="2.6183E-13"
+        izz="2.5138E-06" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://gripper_ur5/meshes/finger_link1.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.79216 0.81961 0.93333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://gripper_ur5/meshes/finger_link1.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="finger_joint1"
+    type="prismatic">
+    <origin
+      xyz="0.050359 -0.052447 0.069837"
+      rpy="1.5708 0 3.1416" />
+    <parent
+      link="gripper_body" />
+    <child
+      link="finger_link1" />
+    <axis
+      xyz="1 0 0" />
+    <limit effort="100" lower="0.00" upper="0.02" velocity="0.1" />
+    <dynamics damping="0.7"/>
+  </joint>
+  <link
+    name="finger_link2">
+    <inertial>
+      <origin xyz="0.0051896 0.024687 9.7594E-11"
+        rpy="0 0 0" />
+      <mass
+        value="0.41464" />
+      <inertia
+        ixx="3.0086E-06"
+        ixy="6.4834E-09"
+        ixz="3.2794E-13"
+        iyy="6.6619E-07"
+        iyz="2.6183E-13"
+        izz="2.5138E-06" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://gripper_ur5/meshes/finger_link2.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.79216 0.81961 0.93333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://gripper_ur5/meshes/finger_link2.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="finger_joint2"
+    type="prismatic">
+    <origin
+      xyz="0.00035895 -0.052447 0.069837"
+      rpy="1.5708 0 0" />
+    <parent
+      link="gripper_body" />
+    <child
+      link="finger_link2" />
+    <axis
+      xyz="1 0 0" />
+    <limit effort="100" lower="0.00" upper="0.02" velocity="0.1" />
+    <dynamics damping="0.7"/>
+  </joint>
+
+  <gazebo reference="finger_link2">
+    <kp>1000000.0</kp>
+    <kd>100.0</kd>
+    <mu1>1.0</mu1>
+    <mu2>1.0</mu2>
+    <maxVel>0</maxVel>
+    <minDepth>0.1</minDepth>
+  </gazebo>
+
+  <gazebo reference="finger_link1">
+    <kp>1000000.0</kp>
+    <kd>100.0</kd>
+    <mu1>1.0</mu1>
+    <mu2>1.0</mu2>
+    <maxVel>0</maxVel>
+    <minDepth>0.1</minDepth>
+  </gazebo>
+
+
+    <transmission name="finger1_trans">
+        <type>transmission_interface/SimpleTransmission</type>
+        <joint name="finger_joint1">
+        <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+        </joint>
+        <actuator name="motor1">
+        <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+        <mechanicalReduction>1</mechanicalReduction>
+        </actuator>
+    </transmission>
+
+    <transmission name="finger2_trans">
+        <type>transmission_interface/SimpleTransmission</type>
+        <joint name="finger_joint2">
+        <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+        </joint>
+        <actuator name="motor2">
+        <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+        <mechanicalReduction>1</mechanicalReduction>
+        </actuator>
+    </transmission>
+
+  
+  <gazebo reference="gripper_body">
+   <material>Gazebo/DarkGrey</material>
+  </gazebo>
+  <gazebo reference="finger_link1">
+   <material>Gazebo/DarkGrey</material>
+  </gazebo>
+  <gazebo reference="finger_link2">
+   <material>Gazebo/DarkGrey</material>
+  </gazebo>
+
+</robot>

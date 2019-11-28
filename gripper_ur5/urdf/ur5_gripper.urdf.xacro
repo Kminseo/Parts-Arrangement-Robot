@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<robot name="ur5" xmlns:xacro="http://www.ros.org/wiki/xacro">
+  <!--Used to attach gripper to the UR5 robot -->
+  <xacro:include filename="$(find ur_description)/urdf/ur5_joint_limited_robot.urdf.xacro" />
+  <xacro:include filename="$(find gripper_ur5)/urdf/gripper.urdf.xacro" />
+  <xacro:include filename="$(find cai_env)/urdf/table.urdf.xacro" />
+
+
+  <joint name="table_ur5_joint" type="fixed">
+    <origin xyz="-0.55 0.000 0.12" rpy="0 0 0" />
+    <parent link="table"/>
+    <child link="base_link"/>
+  </joint>1
+
+  <joint name="ur5_gripper_joint" type="fixed">
+    <origin xyz="-0.030 0.052 0.007" rpy="0 0 0" />
+    <parent link="tool0"/>
+    <child link="gripper_body"/>
+  </joint>
+  
+</robot>

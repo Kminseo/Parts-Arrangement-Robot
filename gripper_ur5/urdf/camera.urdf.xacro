@@ -1,0 +1,59 @@
+<?xml version="1.0"?>
+
+<robot name="camera" xmlns:xacro="http://wiki.ros.org/xacro">
+
+    <link name="world"/>
+    
+    <joint name="camera_joint" type="fixed">
+        <parent link="world"/>
+        <child link="camera"/>
+    </joint>
+
+    <link name="camera">
+        <visual>
+            <origin xyz="0 0 0" rpy="0 0 0"/>
+            <geometry>
+                <box size="0.02 0.02 0.02"/>
+            </geometry>
+        </visual>
+        <inertial>
+            <origin xyz="0 0 0" rpy="0 0 0"/>
+            <mass value="0.001"/>
+            <inertia ixx="1.0e-06" ixy="0" ixz="0" iyy="1.0e-06" iyz="0" izz="1.0e-06"/>
+        </inertial>
+    </link>
+
+    <gazebo reference="camera">
+      <sensor type="camera" name="camera_camera_sensor">
+        <update_rate>30.0</update_rate>
+        <camera>
+          <pose>0 0 0 0 0 0</pose>
+          <horizontal_fov>${85 * 3.14/180.0}</horizontal_fov>
+          <image>
+            <format>R8G8B8</format>
+            <width>1280</width>
+            <height>960</height>
+          </image>
+          <clip>
+            <near>0.01</near>
+            <far>100</far>
+          </clip>
+        </camera>
+
+        <plugin name="camera_camera_controller" filename="libgazebo_ros_camera.so">
+          <alwaysOn>true</alwaysOn>
+          <updateRate>0.0</updateRate>
+          <cameraName>arm_sensor/camera</cameraName>
+          <imageTopicName>image_raw</imageTopicName>
+          <cameraInfoTopicName>camera_info</cameraInfoTopicName>
+          <frameName>camera</frameName>
+          <hackBaseline>0.07</hackBaseline>
+          <distortionK1>0.0</distortionK1>
+          <distortionK2>0.0</distortionK2>
+          <distortionK3>0.0</distortionK3>
+          <distortionT1>0.0</distortionT1>
+          <distortionT2>0.0</distortionT2>
+        </plugin>
+      </sensor>
+    </gazebo>
+</robot>

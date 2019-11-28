@@ -1,0 +1,24 @@
+<launch>
+<!-- this launch file load to gripper in the world -->
+
+<!-- Convert xacro and put on parameter server -->
+<param name="robot_description" command="$(find xacro)/xacro.py $(find gripper_ur5)/urdf/ur5_gripper.urdf.xacro" />
+
+<!-- Spawn a robot into Gazebo -->
+<node name="spawn_urdf" pkg="gazebo_ros" type="spawn_model" args="-param robot_description -urdf -model robot" />
+
+<!-- send fake joint values-->
+<!-- <node name="joint_state_publisher" pkg="joint_state_publisher" type="joint_state_publisher">
+    <param name="use_gui" value =  "TRUE"/>
+</node> -->
+
+<!-- Robot state publisher -->
+  <node name="robot_state_publisher" pkg="robot_state_publisher" type="robot_state_publisher"
+    respawn="false" output="screen"/>
+
+<!-- Show in Rviz-->
+<!-- <node name ='rviz' pkg='rviz' type="rviz" /> -->
+
+<rosparam file="$(find gripper_ur5)/config/gripper_controller.yaml" command ="load"/>
+<node name="arm_controller_spawner" pkg="controller_manager" type="spawner" ns="/gripper" args="joint_state_controller" respawn="false" output="screen"/>
+</launch>

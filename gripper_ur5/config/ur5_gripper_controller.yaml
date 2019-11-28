@@ -1,0 +1,55 @@
+
+joint_state_controller:
+  type: joint_state_controller/JointStateController
+  publish_rate: 50
+
+gripper_controller:
+  type: "position_controllers/JointTrajectoryController"
+  joints: 
+    - finger_joint1
+    - finger_joint2
+
+  gains:
+    finger_joint1: {p: 100.0, i: 0.01, d: 10.0}
+    finger_joint2: {p: 100.0, i: 0.01, d: 10.0}
+
+arm_controller:
+  type: position_controllers/JointTrajectoryController
+  joints:
+     - shoulder_pan_joint
+     - shoulder_lift_joint
+     - elbow_joint
+     - wrist_1_joint
+     - wrist_2_joint
+     - wrist_3_joint
+  constraints:
+      goal_time: 0.6
+      stopped_velocity_tolerance: 0.05
+      shoulder_pan_joint: {trajectory: 0.1, goal: 0.1}
+      shoulder_lift_joint: {trajectory: 0.1, goal: 0.1}
+      elbow_joint: {trajectory: 0.1, goal: 0.1}
+      wrist_1_joint: {trajectory: 0.1, goal: 0.1}
+      wrist_2_joint: {trajectory: 0.1, goal: 0.1}
+      wrist_3_joint: {trajectory: 0.1, goal: 0.1}
+      
+  stop_trajectory_duration: 0.5
+  state_publish_rate:  25
+  action_monitor_rate: 10
+
+  pid_gains:
+    shoulder_pan_joint: {p: 10.0, i: 0.0, d: 1.0}
+    shoulder_lift_joint: {p: 10.0, i: 0.0, d: 1.0}
+    elbow_joint: {p: 10.0, i: 0.0, d: 1.0}
+    wrist_1_joint: {p: 10.0, i: 0.0, d: 1.0}
+    wrist_2_joint: {p: 10.0, i: 0.0, d: 1.0}
+    wrist_3_joint: {p: 10.0, i: 0.0, d: 1.0}
+
+joint_group_position_controller:
+  type: position_controllers/JointGroupPositionController
+  joints:
+     - shoulder_pan_joint
+     - shoulder_lift_joint
+     - elbow_joint
+     - wrist_1_joint
+     - wrist_2_joint
+     - wrist_3_joint

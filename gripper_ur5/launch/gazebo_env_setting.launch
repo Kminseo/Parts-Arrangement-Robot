@@ -1,0 +1,49 @@
+<?xml version="1.0"?>
+<launch>
+  <arg name="limited" default="true"  doc="If true, limits joint range [-PI, PI] on all joints." />
+  <arg name="paused" default="false" doc="Starts gazebo in paused mode" />
+  <arg name="gui" default="true" doc="Starts gazebo gui" />
+  
+  <!-- startup simulated world -->
+  <include file="$(find gazebo_ros)/launch/empty_world.launch">
+    <arg name="world_name" value="$(find cai_env)/worlds/factory_world.world"/>
+    <arg name="paused" value="$(arg paused)"/>
+    <arg name="gui" value="$(arg gui)"/>
+  </include>
+  <!-- Convert xacro and put on parameter server -->
+  <param name="ur_robot_description" command="$(find xacro)/xacro.py $(find gripper_ur5)/urdf/ur5_gripper.urdf.xacro" />
+  <param name="basket_description" command="$(find xacro)/xacro $(find cai_env)/urdf/basket.urdf.xacro" />
+
+  <!-- Spawn a robot into Gazebo -->
+  <node name="spawn_urdf" pkg="gazebo_ros" type="spawn_model" args="-urdf -param ur_robot_description -urdf -model robot" respawn="false" output="screen"/>
+  <node name="spawn_urdf1" pkg="gazebo_ros" type="spawn_model" args="-urdf -param basket_description -urdf -model basket1 -wait robot -x -0.55 -y 0.40 -z 0.88 " respawn="false" output="screen"/>
+  <node name="spawn_urdf2" pkg="gazebo_ros" type="spawn_model" args="-urdf -param basket_description -urdf -model basket2 -wait robot -x -0.55 -y -0.40 -z 0.88 " respawn="false" output="screen"/>
+  <node name="spawn_urdf3" pkg="gazebo_ros" type="spawn_model" args="-urdf -param basket_description -urdf -model basket3 -wait robot -x -0.55 -y -0.60 -z 0.88 " respawn="false" output="screen"/>
+  <node name="spawn_urdf4" pkg="gazebo_ros" type="spawn_model" args="-urdf -param basket_description -urdf -model basket4 -wait robot -x -0.55 -y 0.60 -z 0.88 " respawn="false" output="screen"/>
+
+  <param name="camera_description" command="$(find xacro)/xacro.py $(find gripper_ur5)/urdf/camera.urdf.xacro" />
+  <node name="camera_spawn" pkg="gazebo_ros" type="spawn_model" args="-urdf -param camera_description -urdf -model camera_1 -z 1.9 -P 1.570796327  " respawn="false" output="screen"/>
+
+  <!-- send robot urdf to param server -->
+  <include file="$(find gripper_ur5)/launch/ur5_upload.launch">
+    <arg name="limited" value="$(arg limited)"/>
+  </include>
+
+  <!-- joint_state_controller -->
+  <!-- <rosparam file="$(find gripper_ur5)/config/gazebo_ros_control_params.yaml" command="load"/> -->
+  <rosparam file="$(find gripper_ur5)/config/gripper_controller.yaml" command="load"/>
+  <node name="joint_state_controller_spawner" pkg="controller_manager" type="controller_manager" args="spawn joint_state_controller" respawn="false" output="screen"/>
+
+   <!-- Robot state publisher -->
+  <node pkg="robot_state_publisher" type="robot_state_publisher" name="robot_state_publisher">
+    <param name="publish_frequency" type="double" value="50.0" />
+  </node>
+
+  <!-- start ur5 controller -->
+  <node name="arm_controller_spawner" pkg="controller_manager" type="controller_manager" args="spawn arm_controller" respawn="false" output="screen"/>
+  <node name="girpper_controller_spawner" pkg="controller_manager" type="controller_manager" args="spawn gripper_controller" respawn="false" output="screen"/>
+  
+  <!-- Show in Rviz-->
+  <!-- <node name ='rviz' pkg='rviz' type="rviz" /> -->
+ 
+</launch>
