@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- This URDF was automatically created by SolidWorks to URDF Exporter! Originally created by Stephen Brawner (brawner@gmail.com) 
+     Commit Version: 1.5.1-0-g916b5db  Build Version: 1.5.7152.31018
+     For more information, please see http://wiki.ros.org/sw_urdf_exporter -->
+<robot name="table" xmlns:xacro="http://www.ros.org/wiki/xacro">
+
+  <link name="world" />
+
+  <joint name="table_fix_joint" type="fixed">
+    <origin xyz = "0 0 0.8" rpy="0 0 0 "/>
+    <parent link = "world"/>
+    <child link = "table"/>
+  </joint>
+
+  <link name="table">
+    <inertial>
+      <origin
+        xyz="-0.0041082 1.07711660138806E-16 0.0054166"
+        rpy="0 0 0" />
+      <mass
+        value="197.15" />
+      <inertia
+        ixx="45.515"
+        ixy="1.87435573118393E-14"
+        ixz="0.072557"
+        iyy="45.957"
+        iyz="6.98966251528785E-15"
+        izz="83.998" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="1.5707963267949 0 0" />
+      <geometry>
+        <mesh
+          filename="package://cai_env/meshes/table.dae" />
+      </geometry>
+      
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="1.5707963267949 0 0" />
+      <geometry>
+        <mesh
+          filename="package://cai_env/meshes/table.dae" />
+      </geometry>
+    </collision>
+  </link>
+</robot>

@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- This URDF was automatically created by SolidWorks to URDF Exporter! Originally created by Stephen Brawner (brawner@gmail.com) 
+     Commit Version: 1.5.1-0-g916b5db  Build Version: 1.5.7152.31018
+     For more information, please see http://wiki.ros.org/sw_urdf_exporter -->
+     
+<robot
+  name="steel_bolt2" xmlns:xacro="http://www.ros.org/wiki/xacro">
+  <link
+    name="steel_bolt2">
+    <inertial>
+      <origin
+        xyz="-1.3295E-07 3.86739999998987E-07 -0.01655"
+        rpy="0 0 0" />
+      <mass
+        value="0.01" />
+      <inertia
+        ixx="1.7378E-07"
+        ixy="-6.22910000000003E-14"
+        ixz="4.9141E-12"
+        iyy="1.7378E-07"
+        iyz="3.0986999998954E-13"
+        izz="2.9541E-09" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="1.5707963267949 0 0" />
+      <geometry>
+        <mesh
+          filename="package://cai_env/meshes/steel_bolt2.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.89804 0.89804 0.89804 1" />
+        <texture
+          filename="package://cai_env/textures/" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="1.5707963267949 0 0" />
+      <geometry>
+        <mesh
+          filename="package://cai_env/meshes/steel_bolt2.STL" />
+      </geometry>
+    </collision>
+  </link>
+</robot>

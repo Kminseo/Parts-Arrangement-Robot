@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- This URDF was automatically created by SolidWorks to URDF Exporter! Originally created by Stephen Brawner (brawner@gmail.com) 
+     Commit Version: 1.5.1-0-g916b5db  Build Version: 1.5.7152.31018
+     For more information, please see http://wiki.ros.org/sw_urdf_exporter -->
+<robot name="wood_bolt" xmlns:xacro="http://www.ros.org/wiki/xacro">
+  <link name="wood_bolt">
+    <inertial>
+      <origin
+        xyz="1.9798E-50 1.00856473359767E-18 0.0149"
+        rpy="0 0 0" />
+      <mass
+        value="0.0014484" />
+      <inertia
+        ixx="1.0629E-07"
+        ixy="-5.6612E-42"
+        ixz="-4.212E-41"
+        iyy="1.0629E-07"
+        iyz="-6.2234852887356E-24"
+        izz="1.1359E-08" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="1.5707963267949 0 0" />
+      <geometry>
+        <mesh
+          filename="package://cai_env/meshes/wood_bolt.STL" />
+      </geometry>
+      <material name="wood">
+        <color rgba="0.79216 0.81961 0.93333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="1.5707963267949 0 0" />
+      <geometry>
+        <mesh
+          filename="package://cai_env/meshes/wood_bolt.STL" />
+      </geometry>
+    </collision>
+  </link>
+
+  <gazebo reference="wood_bolt">
+   <material>Gazebo/Wood</material>
+  </gazebo>
+</robot>

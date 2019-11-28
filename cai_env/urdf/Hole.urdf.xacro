@@ -1,0 +1,22 @@
+<?xml version="1.0"?>
+<robot name ="hole" xmlns:xacro="http://www.ros.org/wiki/xacro">
+    <link name="hole_body">
+        <inertial>
+            <origin rpy="0 0 0" xyz="100.61e-3 -39.99e-3 89.33e-3"/>
+            <mass value="0.1"/>
+            <inertia ixx="602678.94e-9" ixy="79.46e-9" ixz="-57.65e-9" iyy="602668.59e-9" iyz="54.01e-9" izz="409802.32e-9"/>
+        </inertial>
+        <visual>
+            <origin rpy="0 0 0" xyz="0 0 0"/>
+            <geometry>
+                <mesh filename="package://cai_env/meshes/Hole.STL" scale="1 1 1" />
+            </geometry>
+        </visual>
+        <collision>
+            <origin rpy="0 0 0" xyz="0 0 0"/>
+            <geometry>
+                <mesh filename="package://cai_env/meshes/Hole.STL" scale="1 1 1" />
+            </geometry>
+        </collision>
+        </link>
+</robot>

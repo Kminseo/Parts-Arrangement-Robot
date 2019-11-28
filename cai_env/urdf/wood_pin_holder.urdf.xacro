@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<robot
+  name="wood_pin_holder">
+  <link
+    name="wood_pin_holder">
+    <inertial>
+      <origin
+        xyz="0.00082169 -0.000610569999999999 0.0098054"
+        rpy="0 0 0" />
+      <mass
+        value="0.48933" />
+      <inertia
+        ixx="0.0018492"
+        ixy="1.6476E-05"
+        ixz="2.9395E-06"
+        iyy="0.00066063"
+        iyz="2.18750000000011E-06"
+        izz="0.0024768" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="1.5707963267949 0 0" />
+      <geometry>
+        <mesh
+          filename="package://cai_env/meshes/wood_pin_holder.STL" />
+      </geometry>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="1.5707963267949 0 0" />
+      <geometry>
+        <mesh
+          filename="package://cai_env/meshes/wood_pin_holder.STL" />
+      </geometry>
+    </collision>
+  </link>
+</robot>

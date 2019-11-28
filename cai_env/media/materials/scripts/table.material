@@ -1,0 +1,14 @@
+material table
+{
+   technique
+   {
+      pass
+      {
+         texture_unit
+         {
+          texture table.png
+          scale 1 1
+         }
+      }   
+   }
+}

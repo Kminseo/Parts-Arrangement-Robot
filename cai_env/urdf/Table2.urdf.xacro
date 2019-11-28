@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- This URDF was automatically created by SolidWorks to URDF Exporter! Originally created by Stephen Brawner (brawner@gmail.com) 
+     Commit Version: 1.5.1-0-g916b5db  Build Version: 1.5.7152.31018
+     For more information, please see http://wiki.ros.org/sw_urdf_exporter -->
+<robot name="Table2" xmlns:xacro="http://www.ros.org/wiki/xacro">
+  <link
+    name="bottom_table">
+    <inertial>
+      <origin
+        xyz="-8.8818E-16 -6.6613E-16 0.4275"
+        rpy="0 0 0" />
+      <mass
+        value="360.5" />
+      <inertia
+        ixx="99.907"
+        ixy="-1.3227E-14"
+        ixz="-2.5924E-14"
+        iyy="204.14"
+        iyz="5.3806E-15"
+        izz="274.1" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://cai_env/meshes/bottom_table.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.79216 0.81961 0.93333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://cai_env/meshes/bottom_table.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <link
+    name="table_cover">
+    <inertial>
+      <origin
+        xyz="1.1102E-16 2.2204E-16 0.7825"
+        rpy="0 0 0" />
+      <mass
+        value="11.88" />
+      <inertia
+        ixx="1.4256"
+        ixy="5.9447E-16"
+        ixz="-1.254E-33"
+        iyy="3.8812"
+        iyz="-2.8912E-19"
+        izz="5.3068" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://cai_env/meshes/table_cover.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.79216 0.81961 0.93333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://cai_env/meshes/table_cover.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="table_joint"
+    type="fixed">
+    <origin
+      xyz="0 0 0"
+      rpy="0 0 0" />
+    <parent
+      link="bottom_table" />
+    <child
+      link="table_cover" />
+    <axis
+      xyz="0 0 0" />
+  </joint>
+
+  <gazebo reference="bottom_table">
+    <material>Gazebo/Gray</material>
+  </gazebo>
+
+  <gazebo reference="table_cover">
+    <material>Gazebo/Grass</material>
+  </gazebo>
+
+</robot>

@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- This URDF was automatically created by SolidWorks to URDF Exporter! Originally created by Stephen Brawner (brawner@gmail.com) 
+     Commit Version: 1.5.1-0-g916b5db  Build Version: 1.5.7152.31018
+     For more information, please see http://wiki.ros.org/sw_urdf_exporter -->
+<robot name="screw2(6ea)" xmlns:xacro="http://www.ros.org/wiki/xacro">
+  <link name="screw2(6ea)">
+    <inertial>
+      <origin
+        xyz="0.028536 -6.84910000438268E-19 -7.1577E-12"
+        rpy="0 0 0" />
+      <mass
+        value="0.0017863" />
+      <inertia
+        ixx="9.88E-09"
+        ixy="1.96610000000017E-19"
+        ixz="-2.8268E-16"
+        iyy="5.862E-07"
+        iyz="3.2286E-20"
+        izz="5.862E-07" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="1.5707963267949 0 0" />
+      <geometry>
+        <mesh
+          filename="package://cai_env/meshes/screw2(6ea).STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.79216 0.81961 0.93333 1" />
+        <texture
+          filename="package://cai_env/textures/" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="1.5707963267949 0 0" />
+      <geometry>
+        <mesh
+          filename="package://cai_env/meshes/screw2(6ea).STL" />
+      </geometry>
+    </collision>
+  </link>
+  <gazebo reference="screw2(6ea)">
+    <material>Gazebo/GreyTransparent</material>
+  </gazebo>
+</robot>

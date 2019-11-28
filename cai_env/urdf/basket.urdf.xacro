@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- This URDF was automatically created by SolidWorks to URDF Exporter! Originally created by Stephen Brawner (brawner@gmail.com) 
+     Commit Version: 1.5.1-0-g916b5db  Build Version: 1.5.7152.31018
+     For more information, please see http://wiki.ros.org/sw_urdf_exporter -->
+<robot name="basket" xmlns:xacro="http://www.ros.org/wiki/xacro">
+
+  <link name="world" />
+
+  <joint name="basket_body_fix_joint" type="fixed">
+    <origin xyz = "0 0 0" rpy="0 0 0 "/>
+    <parent link = "world"/>
+    <child link = "basket_body"/>
+  </joint>
+
+  <link name="basket_body">
+    <inertial>
+      <origin
+        xyz="6.847E-06 3.42310000256316E-09 0.041861"
+        rpy="0 0 0" />
+      <mass
+        value="0.62356" />
+      <inertia
+        ixx="0.0026291"
+        ixy="4.57460000000014E-10"
+        ixz="-2.3543E-07"
+        iyy="0.0043629"
+        iyz="3.96220000047294E-10"
+        izz="0.0051353" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="1.5707963267949 0 0" />
+      <geometry>
+        <mesh
+          filename="package://cai_env/meshes/basket.STL"  />
+      </geometry>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="1.5707963267949 0 0" />
+      <geometry>
+        <mesh
+          filename="package://cai_env/meshes/basket.STL" />
+      </geometry>
+    </collision>
+  </link>
+
+  <gazebo reference="basket_body">
+   <material>Gazebo/WoodPallet</material>
+  </gazebo>
+
+</robot>

@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- This URDF was automatically created by SolidWorks to URDF Exporter! Originally created by Stephen Brawner (brawner@gmail.com) 
+     Commit Version: 1.5.1-0-g916b5db  Build Version: 1.5.7152.31018
+     For more information, please see http://wiki.ros.org/sw_urdf_exporter -->
+<robot name="chair_pin(14ea)" xmlns:xacro="http://www.ros.org/wiki/xacro">
+  <link name="chair_pin(14ea)">
+    <inertial>
+      <origin xyz="9.6242E-20 -0.015 9.18454765366783E-19" rpy="0 0 0" />
+      <mass value="0.0014585" />
+      <inertia ixx="1.0843E-07" ixy="-3.9375E-36" ixz="-4.53590000002411E-41"
+        iyy="1.1439E-08" iyz="5.93878974317931E-24" izz="1.0843E-07" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="1.5707963267949 0 0" />
+      <geometry>
+        <mesh
+          filename="package://cai_env/meshes/chair_pin(14ea).STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.79216 0.81961 0.93333 1" />
+        <texture
+          filename="package://cai_env/textures/" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="1.5707963267949 0 0" />
+      <geometry>
+        <mesh
+          filename="package://cai_env/meshes/chair_pin(14ea).STL" />
+      </geometry>
+    </collision>
+  </link>
+  <gazebo reference="chair_pin(14ea)">
+    <material>Gazebo/Wood</material>
+  </gazebo>
+</robot>

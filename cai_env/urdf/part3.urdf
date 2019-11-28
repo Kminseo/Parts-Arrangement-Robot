@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- This URDF was automatically created by SolidWorks to URDF Exporter! Originally created by Stephen Brawner (brawner@gmail.com) 
+     Commit Version: 1.5.1-0-g916b5db  Build Version: 1.5.7152.31018
+     For more information, please see http://wiki.ros.org/sw_urdf_exporter -->
+<robot
+  name="part3">
+  <link name="part3">
+    <inertial>
+      <origin
+        xyz="-3.1985E-18 -0.0099903 4.02510000000006E-05"
+        rpy="0 0 0" />
+      <mass
+        value="0.26482" />
+      <inertia
+        ixx="6.4143E-05"
+        ixy="1.635E-20"
+        ixz="9.5153000000001E-23"
+        iyy="0.0016227"
+        iyz="-3.74120000000028E-08"
+        izz="0.0015765" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="1.5707963267949 0 0" />
+      <geometry>
+        <mesh
+          filename="package://cai_env/meshes/part3.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.79216 0.81961 0.93333 1" />
+        <texture
+          filename="package://cai_env/textures/" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="1.5707963267949 0 0" />
+      <geometry>
+        <mesh
+          filename="package://cai_env/meshes/part3.STL" />
+      </geometry>
+    </collision>
+  </link>
+
+  <gazebo reference="part3">
+    <material>Gazebo/BlackTransparent</material>
+  </gazebo>
+  
+</robot>

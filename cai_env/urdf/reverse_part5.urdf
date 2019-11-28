@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- This URDF was automatically created by SolidWorks to URDF Exporter! Originally created by Stephen Brawner (brawner@gmail.com) 
+     Commit Version: 1.5.1-0-g916b5db  Build Version: 1.5.7152.31018
+     For more information, please see http://wiki.ros.org/sw_urdf_exporter -->
+<robot name="reverse_part5">
+  <link
+    name="reverse_part5">
+    <inertial>
+      <origin
+        xyz="0.25265 0.022466 0.35064"
+        rpy="0 0 0" />
+      <mass
+        value="1.8822" />
+      <inertia
+        ixx="0.092184"
+        ixy="-0.0046305"
+        ixz="-0.028222"
+        iyy="0.14409"
+        iyz="0.00238449999999999"
+        izz="0.052969" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="1.5707963267949 0 0" />
+      <geometry>
+        <mesh
+          filename="package://cai_env/meshes/reverse_part5.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.79216 0.81961 0.93333 1" />
+        <texture
+          filename="package://cai_env/textures/" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="1.5707963267949 0 0" />
+      <geometry>
+        <mesh
+          filename="package://cai_env/meshes/reverse_part5.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <gazebo reference="reverse_part5">
+    <material>Gazebo/SkyBlue</material>
+  </gazebo>
+</robot>
