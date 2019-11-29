@@ -1,5 +1,7 @@
 # Arrange_robot
 
+<img src="https://github.com/yehengchen/video_demo/blob/master/video_demo/grasp_detection.gif" width="60%" height="60%">
+
 ### 실행순서
 
 1. `$ roslaunch gripper_ur5 gazebo_env_setting.launch`
