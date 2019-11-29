@@ -1,6 +1,6 @@
 # Arrange_robot
 
-<img src="https://github.com/yehengchen/video_demo/blob/master/video_demo/grasp_detection.gif" width="60%" height="60%">
+<img src="https://github.com/yehengchen/video_demo/blob/master/video_demo/grasp_detection.gif" width="80%" height="80%">
 
 ### 실행순서
 
