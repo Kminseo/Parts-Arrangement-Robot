@@ -1,5 +1,4 @@
-# Arrange_robot
-
+# Parts Arrangement Robot
 <img src="https://github.com/yehengchen/video_demo/blob/master/video_demo/grasp_detection.gif" width="80%" height="80%">
 
 ## Environment
