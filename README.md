@@ -2,6 +2,13 @@
 
 <img src="https://github.com/yehengchen/video_demo/blob/master/video_demo/grasp_detection.gif" width="80%" height="80%">
 
+## Environment
+
+* ##### Ubuntu 18.04 
+* ##### ROS Melodic
+* ##### python 2.7
+
+
 ### 실행순서
 
 1. `$ roslaunch gripper_ur5 gazebo_env_setting.launch`
