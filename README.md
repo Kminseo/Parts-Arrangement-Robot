@@ -3,10 +3,9 @@
 
 ## Environment
 
-* ##### Ubuntu 18.04 
-* ##### ROS Melodic
-* ##### python 2.7
-
+* __Ubuntu 18.04__ 
+* __ROS Melodic__
+* __python 2.7__
 
 ### 실행순서
 
