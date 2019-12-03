@@ -9,15 +9,52 @@ __Parts Arrangement Robot Demo Video - [[YouTube]](https://www.youtube.com/watch
 * __python 2.7__
 
 ***
+## Installing
 
-### Quick Start
+1. **Install ROS**
+
+    Follow these [instructions](http://wiki.ros.org/kinetic/Installation/Ubuntu).
+    You can select any of the default configurations in step 1.4; even the
+    ROS-Base (Bare Bones) package (`ros-kinetic-ros-base`) is enough.
+
+2. **Create a catkin workspace** (if you do not already have one). To create a catkin workspace, follow these [instructions](http://wiki.ros.org/catkin/Tutorials/create_a_workspace):
+    ```
+    $ mkdir -p ~/catkin_ws/src   # Replace `catkin_ws` with the name of your workspace
+    $ cd ~/catkin_ws/
+    $ catkin_make
+    ```
+3. **Download the code**
+    ```
+    $ cd ~/catkin_ws/src
+    $ git clone https://github.com/Kminseo/Parts-Arrangement-Robot.git
+    ```
+
+4. **Install python dependencies**
+    ```
+    $ cd ~/catkin_ws/src/Parts-Arrangement-Robot
+    $ pip install -r requirements.txt
+    ```
+
+5. **Install ROS dependencies**
+    ```
+    $ cd ~/catkin_ws
+    $ rosdep install --from-paths src -i --rosdistro melodic
+    $ sudo apt-get install ros-melodic-rosbash ros-melodic-ros-comm
+    ```
+
+6. **Build**
+    ```
+    $ cd ~/catkin_ws
+    $ catkin_make
+    ```
+## Quick Start
 
 * `$ roslaunch gripper_ur5 gazebo_env_setting.launch`
 * `$ roslaunch gripper_ur5_moveit_config moveit_planning_execution.launch`
 * `$ roslaunch yolov3_pytorch_ros detector.launch`
 * `$ rosrun gripper_ur5 robot_sorting_yolo.py`
 
-### Launch 파일 설명
+## Launch 파일 설명
 
 * __To simulate the robot environment launch the following:__
    
