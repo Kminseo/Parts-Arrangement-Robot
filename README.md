@@ -48,7 +48,7 @@ __Parts Arrangement Robot Demo Video - [[YouTube]](https://www.youtube.com/watch
 * `$ roslaunch yolov3_pytorch_ros detector.launch`
 * `$ rosrun gripper_ur5 robot_sorting_yolo.py`
 
-## Launch 파일 설명
+## Node info - Launch 파일 설명
 
 * __To simulate the robot environment launch the following:__
    
