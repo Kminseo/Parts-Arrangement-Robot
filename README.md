@@ -12,10 +12,10 @@ __Parts Arrangement Robot Demo Video - [[YouTube]](https://www.youtube.com/watch
 
 ### Quick Start
 
-1. `$ roslaunch gripper_ur5 gazebo_env_setting.launch`
-2. `$ roslaunch gripper_ur5_moveit_config moveit_planning_execution.launch`
-3. `$ roslaunch yolov3_pytorch_ros detector.launch`
-4. `$ rosrun gripper_ur5 robot_sorting_yolo.py`
+* `$ roslaunch gripper_ur5 gazebo_env_setting.launch`
+* `$ roslaunch gripper_ur5_moveit_config moveit_planning_execution.launch`
+* `$ roslaunch yolov3_pytorch_ros detector.launch`
+* `$ rosrun gripper_ur5 robot_sorting_yolo.py`
 
 ### Launch 파일 설명
 
