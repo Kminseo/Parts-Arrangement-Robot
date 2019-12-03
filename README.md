@@ -13,36 +13,30 @@ __Parts Arrangement Robot Demo Video - [[YouTube]](https://www.youtube.com/watch
 
 1. **Install ROS**
 
-    Follow these [instructions](http://wiki.ros.org/kinetic/Installation/Ubuntu).
+    Follow these [ROS Melodic installation instructions](http://wiki.ros.org/melodic/Installation).
     You can select any of the default configurations in step 1.4; even the
-    ROS-Base (Bare Bones) package (`ros-kinetic-ros-base`) is enough.
+    ROS-Base (Bare Bones) package (`ros-melodic-ros-base`) is enough.
 
-2. **Create a catkin workspace** (if you do not already have one). To create a catkin workspace, follow these [instructions](http://wiki.ros.org/catkin/Tutorials/create_a_workspace):
-    ```
-    $ mkdir -p ~/catkin_ws/src   # Replace `catkin_ws` with the name of your workspace
-    $ cd ~/catkin_ws/
-    $ catkin_make
-    ```
-3. **Download the code**
+2. **Download the code**
     ```
     $ cd ~/catkin_ws/src
     $ git clone https://github.com/Kminseo/Parts-Arrangement-Robot.git
     ```
 
-4. **Install python dependencies**
+3. **Install python dependencies**
     ```
     $ cd ~/catkin_ws/src/Parts-Arrangement-Robot
     $ pip install -r requirements.txt
     ```
 
-5. **Install ROS dependencies**
+4. **Install ROS dependencies**
     ```
     $ cd ~/catkin_ws
     $ rosdep install --from-paths src -i --rosdistro melodic
     $ sudo apt-get install ros-melodic-rosbash ros-melodic-ros-comm
     ```
 
-6. **Build**
+5. **Build**
     ```
     $ cd ~/catkin_ws
     $ catkin_make
